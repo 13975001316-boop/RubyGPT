@@ -1,105 +1,93 @@
-window.onload = function () {
+// RubyGPT script.js
 
-    const chatBox = document.getElementById("chatBox");
+const OPENROUTER_API_KEY = "";
 
-const savedHistory = localStorage.getItem("chatHistory");
+const chatBox = document.getElementById('chatBox');
 
-if (savedHistory) {
+const inputField = document.getElementById('userInput');
 
-    chatBox.innerHTML = savedHistory;
+const sendButton = document.getElementById('sendBtn');
 
-}
+// 发送消息
 
-    const inputBox = document.getElementById("userInput");
+sendButton.addEventListener('click', async () => {
 
-    const sendBtn = document.getElementById("sendBtn");
+    const userMessage = inputField.value.trim();
 
-    function sendMessage() {
+    if (!userMessage) return;
 
-        const message = inputBox.value.trim();
+    inputField.value = '';
 
-        if (message === "") return;
+    // 用户消息
 
-        const userMessage = document.createElement("div");
+    const userDiv = document.createElement('div');
 
-        userMessage.classList.add("user-message");
+    userDiv.classList.add('user-message');
 
-        userMessage.innerText = message;
+    userDiv.innerText = userMessage;
 
-        chatBox.appendChild(userMessage);
+    chatBox.appendChild(userDiv);
 
-        localStorage.setItem("chatHistory", chatBox.innerHTML);
+    // AI 思考中
 
-        inputBox.value = "";
+    const aiDiv = document.createElement('div');
 
-        const thinkingMessage = document.createElement("div");
+    aiDiv.classList.add('ai-message');
 
-thinkingMessage.classList.add("ai-message");
+    aiDiv.innerText = 'RubyGPT 正在思考中...';
 
-thinkingMessage.innerText = "RubyGPT 正在思考中...";
+    chatBox.appendChild(aiDiv);
 
-chatBox.appendChild(thinkingMessage);
+    try {
 
-        setTimeout(() => {
+        const response = await fetch(
 
-            const aiMessage = document.createElement("div");
+             "http://localhost:3000/api/chat",
 
-            aiMessage.classList.add("ai-message");
+            {
 
-            if (message.includes("你好")) {
+                method: 'POST',
 
-     thinkingMessage.innerText = "你好呀，我是 RubyGPT 😊";
+                headers: {
 
-} else if (message.includes("名字")) {
+                    'Content-Type': 'application/json',
 
-     thinkingMessage.innerText = "我叫 RubyGPT";
+                    },            
 
-}
+                    body: JSON.stringify({
 
-else if (message.includes("你是谁")) {
+                         message: userMessage
 
-    thinkingMessage.innerText = "我是你亲手开发的AI助手";
+                   })
 
-}
+              }
 
-else if (message.includes("大学")) {
+        );  
 
-    thinkingMessage.innerText = "大学时期是学习AI最好的时间";
+        const data = await response.json();
 
-}
+        console.log(data);      
 
-else if (message.includes("雅思")) {
+        aiDiv.innerText = data.choices[0].message.content;
 
-    thinkingMessage.innerText = "坚持每天学习雅思，你会进步很快";
+    } catch (error) {
 
-}
+        console.error(error);
 
-else {
-
-    thinkingMessage.innerText = "这个问题我还在学习中...";
+        aiDiv.innerText = "AI 调用失败";
 
     }
 
-            localStorage.setItem("chatHistory", chatBox.innerHTML);
+});
 
-            localStorage.setItem("chatHistory", chatBox.innerHTML);
+// 回车发送
 
-            chatBox.scrollTop = chatBox.scrollHeight;
+inputField.addEventListener('keypress', (e) => {
 
-        }, 500);
+       if (e.key === 'Enter') {
+
+        sendButton.click();
 
     }
 
-    sendBtn.addEventListener("click", sendMessage);
-
-    inputBox.addEventListener("keydown", function (event) {
-
-          if (event.key === "Enter") {
-
-            sendMessage();
-
-        }
-
-    });
-
-};
+});

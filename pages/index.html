@@ -16,9 +16,47 @@
 
 <body>
 
+<div class="left-info">
+
+    <p>⚡ Fast Response</p>
+
+    <p>⚡ Smart AI</p>
+
+    <p>⚡ 24/7 Online</p>
+
+</div>
+
+<div class="right-info">
+
+    <p>✓ GPT Powered</p>
+
+    <p>✓ Secure Chat</p>
+
+    <p>✓ Modern UI</p>
+
+</div>
+
 <div class="chat-container">
 
-<h1>AI Chat</h1>
+<div class="ai-logo">🤖</div>
+
+<h1>Ruby AI </h1>
+
+<div class="status-bar">
+
+    ● Online
+
+</div>
+
+<p class="creator">Created by 蔡诗儒</p>
+
+<p class="subtitle">Your Intelligent Assistant</p>
+
+<p class="description">
+
+Powered by Advanced AI Technology
+
+</p>
 
 <div class="chat-box" id="chatBox">
 
@@ -34,59 +72,13 @@
 
     <input type="text" id="userInput" placeholder="Type message...">
 
-    <button onclick="sendMessage()">Send</button>
+    <button id="sendBtn">Send</button>
 
 </div>
 
 </div>
 
-<script>
-
-function sendMessage(){
-
-    const input = document.getElementById("userInput");
-
-    const chatBox = document.getElementById("chatBox");
-
-    const text = input.value.trim();
-
-    if(text === ""){
-
-        return;
-
-    }
-
-    // 用户消息
-
-    const userMessage = document.createElement("div");
-
-        userMessage.className = "user-message";
-
-    userMessage.textContent = text;
-
-    chatBox.appendChild(userMessage);
-
-    // AI回复
-
-    const aiMessage = document.createElement("div");
-
-    aiMessage.className = "ai-message";
-
-    aiMessage.textContent = "You said: " + text;
-
-    chatBox.appendChild(aiMessage);
-
-    // 清空输入框
-
-    input.value = "";
-
-    // 自动滚动到底部
-
-    chatBox.scrollTop = chatBox.scrollHeight;
-
-}
-
-</script>
+<script src="script.js"></script>
 
 </body>
 

@@ -1,34 +1,40 @@
-body{
+body {
 
-    font-family: Arial, sans-serif;
+  margin: 0;
 
-    background:#f5f5f5;
+  font-family: Arial, sans-serif;
 
-    display:flex;
+  height: 100vh;
 
-    justify-content:center;
+  display: flex;
 
-    align-items:center;
+  justify-content: center;
 
-    height:100vh;
+  align-items:flex-start;
 
-    margin:0;
+  padding-top:20px;
+
+  background: radial-gradient(circle at top, #1e3a8a, #020617 60%);
 
 }
 
-.chat-container{
+.chat-container {
 
-    width:400px;
+  width:550px;
 
-    background:white;
+  padding:20px; 
 
-    border-radius:20px;
+  border-radius: 24px;
 
-    padding:20px;
+  background: rgba(255, 255, 255, 0.12);
 
-    box-shadow:0 0 20px rgba(0,0,0,0.1);
+  backdrop-filter: blur(18px);
 
-    }
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+
+  color: white;
+
+}
 
 h1{
 
@@ -36,27 +42,29 @@ h1{
 
 }
 
-.chat-box{
+.chat-box {
 
-    height:300px;
+  height:320px;
 
-    overflow-y:auto;
+  overflow-y: auto;
 
-    border:1px solid #ddd;
+  border: 1px solid rgba(255,255,255,0.25);
 
-    padding:10px;
+  padding: 10px;
 
-    border-radius:10px;
+  border-radius: 16px;
 
-    margin-bottom:10px;
+  margin-bottom: 10px;
 
-    background:#fafafa;
+  background: rgba(255,255,255,0.08);
 
 }
 
 .ai-message{
 
-    background:#e5e5ea;
+    background:#16213e;
+
+    color:white;
 
     padding:10px;
 
@@ -70,7 +78,7 @@ h1{
 
 .user-message{
 
-    background:#007aff;
+    background:#3b82f6;
 
     color:white;
 
@@ -98,26 +106,250 @@ input{
 
     flex:1;
 
-    padding:10px;
-
-    border-radius:10px;
-
-    border:1px solid #ccc;
-
-    }
-
-button{
-
-    padding:10px 15px;
+    padding:12px;
 
     border:none;
 
-    border-radius:10px;
+    border-radius:12px;
 
-    background:#007aff;
+    background:rgba(255,255,255,0.15);
+
+    color:white;
+
+    outline:none;
+
+}
+
+input::placeholder{
+
+    color:#cbd5e1;
+
+}
+
+button{
+
+    padding:12px 18px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:linear-gradient(135deg,#3b82f6,#2563eb);
 
     color:white;
 
     cursor:pointer;
 
+    transition:0.3s;
+
+}
+
+button:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.subtitle{
+
+    text-align:center;
+
+    color:#cbd5e1;
+
+    margin-top:-10px;
+
+    margin-bottom:20px;
+
+    font-size:14px;
+
+}
+
+.ai-logo{
+
+    width:70px;
+
+    height:70px;
+
+    margin:0 auto 15px;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#3b82f6,#06b6d4);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:35px;
+
+    box-shadow:0 0 25px rgba(59,130,246,0.7);
+
+}
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    left:-200px;
+
+    top:100px;
+
+    width:400px;
+
+    height:400px;
+
+    background:#00ffff;
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+    opacity:0.2;
+
+}
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    right:-200px;
+
+    bottom:100px;
+
+    width:400px;
+
+    height:400px;
+
+    background:#3b82f6;
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+    opacity:0.2;
+
+}
+
+.chat-container{
+
+    position:relative;
+
+    z-index:1;
+
+}
+
+.description{
+
+    text-align:center;
+
+    color:#94a3b8;
+
+    font-size:12px;
+
+    margin-top:5px;
+
+    margin-bottom:20px;
+
+}
+
+.creator{
+
+    text-align:center;
+
+    color:#cbd5e1;
+
+    font-size:13px;
+
+    margin-bottom:15px;
+
+}
+
+.status-bar{
+
+    width:100px;
+
+    margin:10px auto;
+
+    text-align:center;
+
+    padding:6px 10px;
+
+    border-radius:20px;
+
+    background:rgba(34,197,94,0.2);
+
+    color:#22c55e;
+
+    font-size:12px;
+
+}
+
+.left-info{
+
+    position:fixed;
+
+    left:30px;
+
+    top:45%;
+
+    color:white;
+
+    font-size:16px;
+
+    line-height:50px;
+
+    opacity:0.65;
+
+}
+
+.right-info{
+
+    position:fixed;
+
+    right:30px;
+
+    top:45%;
+
+    color:white;
+
+    font-size:16px;
+
+    line-height:50px;
+
+    opacity:0.65;
+
+}
+
+@keyframes pulse{
+
+    0%{
+
+        opacity:1;
+
     }
+
+    50%{
+
+        opacity:0.4;
+
+    }
+
+    100%{
+
+        opacity:1;
+
+    }
+
+}
+
+.status-bar{
+
+    animation:pulse 2s infinite;
+
+}
