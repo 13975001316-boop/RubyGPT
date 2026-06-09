@@ -128,25 +128,43 @@ input::placeholder{
 
 button{
 
-    padding:12px 18px;
+    background:#00bfff;
+
+    color:white;
 
     border:none;
 
     border-radius:12px;
 
-    background:linear-gradient(135deg,#3b82f6,#2563eb);
+    padding:12px 22px;
 
-    color:white;
+    font-weight:bold;
 
     cursor:pointer;
 
-    transition:0.3s;
+    box-shadow:
+
+    0 0 10px #00bfff,
+
+    0 0 20px #00bfff,
+
+    0 0 40px #00bfff;
+
+    transition:all 0.3s ease;
 
 }
 
 button:hover{
 
-    transform:translateY(-2px);
+    transform:scale(1.08);
+
+    box-shadow:
+
+    0 0 15px #00bfff,
+
+    0 0 30px #00bfff,
+
+    0 0 60px #00bfff;
 
 }
 
