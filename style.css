@@ -411,3 +411,73 @@ body::after{
         0 0 80px #00eaff !important;
 
 }
+
+input{
+
+    background:rgba(255,255,255,0.18) !important;
+
+    color:white !important;
+
+    border:1px solid rgba(0,234,255,0.5) !important;
+
+    border-radius:16px !important;
+
+    outline:none !important;
+
+    box-shadow:0 0 12px rgba(0,234,255,0.25);
+
+    transition:0.3s;
+
+}
+
+input:focus{
+
+    border:1px solid #00eaff !important;
+
+    box-shadow:
+
+        0 0 10px #00eaff,
+
+        0 0 25px rgba(0,234,255,0.8) !important;
+
+}
+
+.ai-logo{
+
+    animation:robotGlow 2s infinite ease-in-out;
+
+    box-shadow:
+
+        0 0 15px #00eaff,
+
+        0 0 35px rgba(0,234,255,0.8);
+
+}
+
+@keyframes robotGlow{
+
+    0%{
+
+        transform:scale(1);
+
+        box-shadow:0 0 15px #00eaff;
+
+    }
+
+    50%{
+
+        transform:scale(1.08);
+
+        box-shadow:0 0 35px #00eaff;
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        box-shadow:0 0 15px #00eaff;
+
+    }
+
+}
